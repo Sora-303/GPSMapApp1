@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
 //se agregaron botones en el mainActibity
         Button BTNgps = findViewById(R.id.BTNgps);
         BTNgps.setOnClickListener(new View.OnClickListener() {

@@ -21,10 +21,18 @@
         android:id="@+id/BTNmap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="156dp"
         android:text="Mostrar Mapa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/BTNvol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="618dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

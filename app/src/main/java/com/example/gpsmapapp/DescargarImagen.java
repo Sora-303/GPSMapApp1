@@ -18,6 +18,7 @@ import java.net.URL;
 
 public class DescargarImagen extends AppCompatActivity {
 
+    //variables
     private ImageView mImageView;
 
 
@@ -27,9 +28,10 @@ public class DescargarImagen extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_descargar_imagen);
 
+        //inicializacion de componentes
         mImageView = findViewById(R.id.IMGdes);
 
-        //boton
+        //boton configurado
         findViewById(R.id.BTNdes).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -38,6 +40,7 @@ public class DescargarImagen extends AppCompatActivity {
         });
     }
 
+    //metodo
     public void cargarImagenDesdeInternet(){
         new Thread(new Runnable() {
             @Override
@@ -53,6 +56,7 @@ public class DescargarImagen extends AppCompatActivity {
         }).start();
     }
 
+    //Metodo
     private Bitmap loadImageFromNetwork(String urlString) {
         try {
             URL url = new URL(urlString);
@@ -61,6 +65,7 @@ public class DescargarImagen extends AppCompatActivity {
             connection.connect();
             InputStream input = connection.getInputStream();
             return BitmapFactory.decodeStream(input);
+            //revicion de errores
         } catch (Exception e) {
             e.printStackTrace();
             return null;

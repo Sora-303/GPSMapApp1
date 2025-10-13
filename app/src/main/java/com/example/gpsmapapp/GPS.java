@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso;
 
 public class GPS extends AppCompatActivity {
 
+    //variables principales
     private FusedLocationProviderClient fusedLocationClient;
     private ImageView IMGmap;
     private Button BTNmap;
@@ -28,13 +29,17 @@ public class GPS extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gps);
 
+        //inicializacion de los componentes
         IMGmap = findViewById(R.id.IMGmap);
         BTNmap = findViewById(R.id.BTNmap);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+
+        //configuracion del boton
         BTNmap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Verificacion de permisos
                 if (ActivityCompat.checkSelfPermission(GPS.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                         ActivityCompat.checkSelfPermission(GPS.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
@@ -43,6 +48,7 @@ public class GPS extends AppCompatActivity {
                     return;
                 }
 
+                //obtecion de ubicacion
                 fusedLocationClient.getLastLocation()
                         .addOnSuccessListener(GPS.this, location -> {
                             if (location != null) {
@@ -56,6 +62,7 @@ public class GPS extends AppCompatActivity {
         });
     }
 
+    //metodo
     private void mostrarMapa(Location location) {
         double lat = location.getLatitude();
         double lng = location.getLongitude();
